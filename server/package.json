@@ -1,0 +1,20 @@
+{
+  "name": "chat-server",
+  "version": "1.0.0",
+  "description": "A robust multi-server chat using node and socket.io",
+  "scripts": {
+    "serve-client": "node client-src/client-server.js",
+    "start-server-1": "node server-src/socket_connect.js server-src/config.json server-1",
+    "start-server-2": "node server-src/socket_connect.js server-src/config.json server-2",
+    "start-server-3": "node server-src/socket_connect.js server-src/config.json server-3",
+    "start-server-4": "node server-src/socket_connect.js server-src/config.json server-4"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "socket.io": "^1.5.0",
+    "socket.io-client": "^1.5.1"
+  },
+  "devDependencies": {},
+  "author": "Ramaseshan Parthasarathy",
+  "license": "ICS"
+}

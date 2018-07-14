@@ -1,0 +1,29 @@
+{
+  "name": "simple-chat",
+  "version": "1.0.0",
+  "description": "Simple React-based browser chat client using Redux.",
+  "main": "index.js",
+  "scripts": {
+    "serve-client": "react-scripts start",
+    "start-server-1": "node server/server-src/socket_connect.js server/server-src/config.json server-1;",
+    "start-server-2": "node server/server-src/socket_connect.js server/server-src/config.json server-2;",
+    "start-server-3": "node server/server-src/socket_connect.js server/server-src/config.json server-3;",
+    "start-server-4": "node server/server-src/socket_connect.js server/server-src/config.json server-4;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpartha/simple-chat.git"
+  },
+  "dependencies": {
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4",
+    "socket.io-client": "^1.5.1"
+  },
+  "author": "Ramaseshan Parthasarathy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpartha/simple-chat/issues"
+  },
+  "homepage": "https://github.com/rpartha/simple-chat#readme"
+}
