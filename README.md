@@ -1,15 +1,15 @@
 # simple-chat
 
-# Info
+# About
 A simplified React-based browser chat client using Redux.
 
 # Requirements
 
-|       Item  | Version  | Prerequisites |
-|:-----------:|:--------:|:-------------:|
-|   Node/npm  |   7.7+   |        -      |
-|     Redux   |    -     |        -      |
-| React-Redux |    -     |  React 0.14+  |
+|              Item                                                | Version  | Prerequisites |
+|:----------------------------------------------------------------:|:--------:|:-------------:|
+|  <a href = "https://nodejs.org/en/download/">Node/npm</a>         |   7.7+   |        -      |
+|  <a href = "https://github.com/reduxjs/redux">Redux</a>           |    -     |        -      |
+| <a href = "https://github.com/reduxjs/react-redux">React-Redux</a>|    -     |  React 0.14+  |
 
 
 # How-To
