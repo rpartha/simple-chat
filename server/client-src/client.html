@@ -41,7 +41,7 @@
                 
                 selectedRecipient.innerHTML = recipient = (user === 'Jill') ? 'Jack':'Jill';
                 
-                let host = `http://localhost:${port}`; //replace with your ip address
+                let host = `http://localhost:${port}`; //replace with host ipv4 to connect other computers on same network
                 socket = io.connect(host);
                 
                 socket.on(CONNECT, onConnected);

@@ -29,7 +29,7 @@ export default class Socket {
             }
         }
         
-        let host = `http://localhost:${port}`; //
+        let host = `http://localhost:${port}`; //replace with host ipv4 to connect other computers on same network
         this.socket = io.connect(host);
         
         this.socket.on(Protocol.CONNECT, this.onConnected);
