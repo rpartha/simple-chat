@@ -1,4 +1,4 @@
-# simple-chat
+# simple-messenger
 
 # About
 A simplified React-based browser chat client using Redux.
