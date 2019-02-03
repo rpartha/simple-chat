@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+
 import { Styles } from '../../constants';
+
 import { sendMessage } from '../../store/message/actions';
 
 class SendButton extends Component {
     handleClick = () => {
-        this.props.dispatch(sendMessage(this.props.socket, this.props.outgoingMessage));
+        this.props.sendMessage(this.props.outgoingMessage);
     };
     
     isEnabled = () => (!!this.props.outgoingMessage);
@@ -25,7 +27,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatch: dispatch
+    sendMessage: message => dispatch(sendMessage(message))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SendButton);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+
 import { Styles, UI } from '../../constants';
 import { Chat } from './chat.js';
 
@@ -44,8 +45,4 @@ const mapStateToProps = (state) => ({
     recipient: state.messageState.recipient
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    dispatch: dispatch
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MessageHistory);
+export default connect(mapStateToProps)(MessageHistory);

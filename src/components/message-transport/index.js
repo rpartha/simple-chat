@@ -1,8 +1,10 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+
 import SendButton from './send_button.js';
-import { Styles, UI } from '../../constants';
 import MessageInput from './message_input.js';
+
+import { Styles, UI } from '../../constants';
 
 
 class MessageTransport extends Component {
@@ -12,7 +14,7 @@ class MessageTransport extends Component {
         return this.isVisible()
             ? <div style={Styles.fieldStyle}>
                 <MessageInput/>
-                <SendButton socket={this.props.socket}/>
+                <SendButton/>
               </div>
             : null;
     }
@@ -25,8 +27,5 @@ const mapStateToProps = (state) => ({
     recipient: state.messageState.recipient
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    dispatch: dispatch
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(MessageTransport);
+export default connect(mapStateToProps)(MessageTransport);

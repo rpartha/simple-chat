@@ -5,7 +5,7 @@ import { outgoingMessageChanged } from '../../store/message/actions';
 
 class MessageInput extends Component {
     handleOutgoingMessageChange = event => {
-        this.props.dispatch(outgoingMessageChanged(event.target.value));
+        this.props.outgoingMessageChanged(event.target.value);
     };
 
     render() {
@@ -21,7 +21,7 @@ class MessageInput extends Component {
 const mapStateToProps = (state) => ({outgoingMessage: state.messageState.outgoingMessage || ''});
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatch: dispatch
+    outgoingMessageChanged: message => dispatch(outgoingMessageChanged(message))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MessageInput);

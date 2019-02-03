@@ -1,6 +1,6 @@
-import * as Protocol from './protocol.js';
-import * as Styles from './styles.js';
-import * as UI from './ui.js';
+import * as Protocol from './Protocol.js';
+import * as Styles from './Styles.js';
+import * as UI from './UI.js';
 
 export {
     Protocol,

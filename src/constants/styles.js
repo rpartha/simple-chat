@@ -6,7 +6,7 @@ export const clientStyle = {
     borderRadius: '5px',
     textAlign: 'left',
     backgroundColor: '#FCFCFC',
-    color: '#00000',
+    color: '#000000',
     fontFamily: "'Lato', 'PT Sans', Helvetica, sans-serif"
 };
 

@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+
 import { Styles, UI } from '../../constants';
+
 import { portChanged } from '../../store/socket/actions';
 
 class PortSelector extends Component {
-    handlePortChange = event => this.props.dispatch(portChanged(event.target.value));
+    handlePortChange = event => this.props.portChanged(event.target.value);
 
     render() {
         return <div style={Styles.fieldStyle}>
@@ -22,7 +24,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatch: dispatch
+    portChanged: port => dispatch(portChanged(port))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PortSelector);

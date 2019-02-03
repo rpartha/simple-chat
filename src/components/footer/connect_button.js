@@ -1,7 +1,10 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+
 import { Styles } from '../../constants';
+
 import { abandonChat } from '../../store/message/actions';
+import { connectSocket, disconnectSocket } from '../../store/socket/actions';
 
 class ConnectButton extends Component {
 
@@ -9,10 +12,10 @@ class ConnectButton extends Component {
 
     handleClick = () => {
         if (this.props.connected) {
-            this.props.socket.disconnect();
-            this.props.dispatch(abandonChat());
+            this.props.disconnectSocket();
+            this.props.abandonChat();
         } else if(this.connectEnabled()) {
-            this.props.socket.connect(this.props.user, this.props.port);
+            this.props.connectSocket();
         }
     };
 
@@ -30,7 +33,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatch: dispatch
+    disconnectSocket: () => dispatch(disconnectSocket()),
+    connectSocket: () => dispatch(connectSocket()),
+    abandonChat: () => dispatch(abandonChat())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConnectButton);

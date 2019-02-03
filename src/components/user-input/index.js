@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+
 import { Styles } from '../../constants';
+
 import { userChanged } from '../../store/message/actions';
 
 class UserInput extends Component {
-    handleUserChange = event => this.props.dispatch(userChanged(event.target.value));
+    handleUserChange = event => this.props.userChanged(event.target.value);
 
     render() {
         return <div style={Styles.fieldStyle}>
@@ -20,7 +22,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatch: dispatch
+    userChanged: user => dispatch(userChanged(user))
 });
 
+//Export props-mapped Higher-Ordered-Component
 export default connect(mapStateToProps, mapDispatchToProps)(UserInput);

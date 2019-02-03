@@ -1,12 +1,12 @@
 
 import {
     USER_CHANGED,
-    RECIPIENT_CHANGED,
-    OUTGOING_MESSAGE_CHANGED,
+    ABANDON_CHAT,
+    MESSAGE_SENT,
     MESSAGE_RECEIVED,
+    RECIPIENT_CHANGED,
     CLIENT_UPDATE_RECEIVED,
-    SEND_MESSAGE,
-    ABANDON_CHAT
+    OUTGOING_MESSAGE_CHANGED,    
 } from '../actions';
 
 import { UI } from '../../../constants';
@@ -44,24 +44,24 @@ function messageReducer(state = INIT_STATE, action) {
                 {outgoingMessage: action.text}
             );
             break;
+        
+        case MESSAGE_SENT:
+            reduced = Object.assign({},
+                state, {outgoingMessage: ''}
+            );
+            break;
 
         case MESSAGE_RECEIVED:
-            
-            let isSentEcho = (action.message.from === state.user);
-            let thread, recipient = isSentEcho ? action.message.to : action.message.from;
+            const isSentEcho = (action.message.from === state.user);
+            const recipient = isSentEcho ? action.message.to : action.message.from;
 
+            //Use array index of rendered IM components
+            const messageKey = (!!state.threads[recipient]) ? state.threads[recipient].length : 0;
+            const keyedMessage = Object.assign({}, action.message, {key: messageKey});
             
-            let messageKey = (!!state.threads[recipient]) ? state.threads[recipient].length : 0;
-            let keyedMessage = Object.assign({}, action.message, {key: messageKey});
+            //Add keyed message to clone of appropriate thread
+            const thread = (state.threads[recipient]) ? state.threads[recipient].concat([keyedMessage]) : [keyedMessage];
 
-            
-            if (state.threads[recipient]) {
-                thread = state.threads[recipient].concat([keyedMessage]);
-            } else {
-                thread = [keyedMessage];
-            }
-
-            
             reduced = Object.assign({}, state, {
                 recipient: recipient,
                 threads: Object.assign({}, state.threads, {
@@ -79,18 +79,6 @@ function messageReducer(state = INIT_STATE, action) {
                 (!action.recipientLost && !!state.lostRecipient)
                     ? {recipient: state.lostRecipient}
                     : {}
-            );
-            break;
-
-        case SEND_MESSAGE:
-            action.socket.sendIm({
-                'from': state.user,
-                'to': state.recipient,
-                'text': state.outgoingMessage,
-                'forwarded': false
-            });
-            reduced = Object.assign({},
-                state, {outgoingMessage: action.user}
             );
             break;
 

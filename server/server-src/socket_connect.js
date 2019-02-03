@@ -19,7 +19,7 @@ if (!path) {
     console.log(`My id: ${mId}`);
 }
 
-let myConfig = config.servers.find(server => server.id === mId);
+let myConfig = config.servers.find(server => server.id === mId.replace(";",""));
 
 if (!myConfig){
     console.log(usage);

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+
 import { Styles } from '../../constants';
 
 class StatusLine extends Component {
@@ -19,8 +20,4 @@ const mapStateToProps = (state) => ({
 
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    dispatch: dispatch
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(StatusLine);
+export default connect(mapStateToProps)(StatusLine);
